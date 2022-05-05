@@ -1,0 +1,62 @@
+<div class="all-page">
+  <header class="header">
+    <img src="/assets/images/millenium-falcon.png" alt="">
+    <h1>Prefeitura de Coruscant</h1>
+  </header>
+  <div class="page-background">
+    <body>
+      <div class="form-box">
+        <h2>
+          <p class="vaccine-word">Vacinas COVID-19</p>
+          <p class="register-word">Cadastro</p>
+        </h2>
+        <form class="form">
+          <label for="name">Nome do Paciente</label>
+          <input id="name" class="inputs-selects-style" type="text" name="nome" />
+      
+          <label for="age">Idade</label>
+          <input id="age" class="inputs-selects-style" type="number" name="idade" />
+      
+          <label for="sus-card">Cartão do SUS</label>
+          <input
+            id="sus-card"
+            class="inputs-selects-style"
+            type="number"
+            name="cartao-sus"
+          />
+      
+          <div class="input-date">
+            <label for="data-application">Data de Aplicação</label>
+            <input
+              id="data-application"
+              type="text"
+              name="data"
+              class="inputs-selects-style"
+              (keyup)="setDateApplicationVaccine($event)"
+              [(ngModel)]="dateApplicationVaccine"
+              maxlength="10"
+              placeholder="dd/mm/aaaa"
+            />
+            <div *ngIf="showToastValidationsCharactersToDate">
+              <p>Digite apenas números!</p>
+            </div>
+          </div>
+      
+          <label for="vaccine">Vacina Aplicada</label>
+          <select
+            name="vaccine-select"
+            class="inputs-selects-style"
+            id="vaccine-select"
+            [(ngModel)]="vaccineSelected"
+          >
+            <option selected disabled>Selecione uma Vacina</option>
+            <option *ngFor="let vaccine of vaccineOptions">{{ vaccine }}</option>
+          </select>
+      
+          <button id="send" (click)="verifyDateFormat()"><i></i>Enviar</button>
+        </form>
+      </div>
+    </body>
+    <footer>"May the Josino be with you!" - Prefeito Yoda</footer>
+  </div>
+</div>
